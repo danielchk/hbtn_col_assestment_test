@@ -1,0 +1,8 @@
+.env
+.DS_Store
+__pycache__
+
+__pycache__/
+challenge
+*.py[cod]
+*$py.class

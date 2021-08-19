@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS retailer;
+CREATE USER IF NOT EXISTS 'test'@'localhost' IDENTIFIED BY '12345678';
+GRANT ALL PRIVILEGES ON *.* TO 'test'@'localhost';
+GRANT USAGE ON *.*  TO 'test'@'localhost';
+FLUSH PRIVILEGES;
