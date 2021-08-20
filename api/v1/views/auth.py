@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Authentification Signup"""
-from api.v1.views import app_views
-from app import mysql
 from flask import json, jsonify, request, abort
+from app import mysql
 from flask_mysqldb import MySQL
+from api.v1.views import app_views
 import jwt
 
 

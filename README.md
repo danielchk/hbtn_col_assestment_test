@@ -14,3 +14,7 @@
     -pip3 install flask
     -pip3 install flask-mysqldb
     -pip3 install pyjwt
+
+
+2. python3 api/v1/app.py
+3. python3 frontend/app.py

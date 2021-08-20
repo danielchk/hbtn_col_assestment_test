@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """flask Run, MySQL"""
+from os import environ
 from flask import Flask, make_response, jsonify
 from flask_mysqldb import MySQL
-from os import environ
+from api.v1.views import app_views
 
 app = Flask(__name__)
-from api.v1.views import app_views
 app.register_blueprint(app_views)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
