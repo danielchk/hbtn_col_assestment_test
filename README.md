@@ -15,7 +15,7 @@
     -pip3 install flask-mysqldb
     -pip3 install pyjwt
 
-##USING THE APP
+## USING THE APP
 
 1.  Run the next commands: -python3 app/v1/app.py
                            -python3 frontend/app.py
