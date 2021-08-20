@@ -20,4 +20,6 @@
 1.  Run the next commands: -python3 app/v1/app.py
                            -python3 frontend/app.py
 
-2. 
+2. Create a count o login if you have already one
+
+3. Search by different type of data like name, id, order
