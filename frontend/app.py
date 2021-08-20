@@ -1,6 +1,6 @@
 """import blueprints and run flask"""
 from flask import Flask, Blueprint
-from routes import *
+from routes import auth, orders
 
 app = Flask(__name__)
 
