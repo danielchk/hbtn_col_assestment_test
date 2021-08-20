@@ -21,4 +21,4 @@ def not_found(error):
 
 if __name__ == "__main__":
     """Run in port"""
-    app.run(host='0.0.0.0', port='5000', threaded=True, debug=True)
+    app.run(host='0.0.0.0', port='5000', threaded=True)

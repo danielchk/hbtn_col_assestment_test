@@ -8,7 +8,8 @@ def order(id):
     if ('savedToken' in session.keys()):
         headers = {'x-auth-token': session['savedToken']}
         data = requests.get('http://localhost:5000/app/v1/orders/{}'.format(id), headers=headers)
-        data = data.json()
+        data = dat
+        a.json()
         return render_template('order.html', data_one=data)
     return redirect('/')
 
