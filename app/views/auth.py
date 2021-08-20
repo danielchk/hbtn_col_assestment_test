@@ -3,7 +3,7 @@
 from flask import json, jsonify, request, abort
 from app import mysql
 from flask_mysqldb import MySQL
-from api.v1.views import app_views
+from app.v1.views import app_views
 import jwt
 
 
@@ -39,6 +39,7 @@ def signin():
         cur = mysql.connection.cursor()
         cur.execute(sql, (email, password))
         userdata = cur.fetchall()
+        
         if (not userdata):
             raise Exception
 
@@ -48,4 +49,4 @@ def signin():
     except TypeError err:
         return jsonify({"message": err})
     except:
-        return jsonify({"message": "User does not exist"}), 404
+        return jsonify({"message": "User not exist"}), 404

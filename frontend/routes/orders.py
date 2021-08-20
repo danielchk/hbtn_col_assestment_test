@@ -7,7 +7,7 @@ import requests
 def order(id):
     if ('savedToken' in session.keys()):
         headers = {'x-auth-token': session['savedToken']}
-        data = requests.get('http://localhost:5000/api/v1/orders/{}'.format(id), headers=headers)
+        data = requests.get('http://localhost:5000/app/v1/orders/{}'.format(id), headers=headers)
         data = data.json()
         return render_template('order.html', data_one=data)
     return redirect('/')
@@ -16,7 +16,7 @@ def order(id):
 def allOrdersIds(ids):
     if ('savedToken' in session.keys()):
         headers = {'x-auth-token': session['savedToken']}
-        data = requests.get('http://localhost:5000/api/v1/orders/ordersid/{}'.format(ids), headers=headers)
+        data = requests.get('http://localhost:5000/app/v1/orders/ordersid/{}'.format(ids), headers=headers)
         data = data.json()
         return render_template('order.html', data_one=data)
     return redirect('/')

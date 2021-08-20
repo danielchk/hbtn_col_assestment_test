@@ -3,7 +3,7 @@ import jwt
 import datetime
 from flask import json, jsonify, request, abort
 from app import mysql
-from api.v1.views import app_views
+from app.v1.views import app_views
 
 def valid_token(encoded_jwt):
     try:
@@ -13,6 +13,7 @@ def valid_token(encoded_jwt):
         cur = mysql.connection.cursor()
         cur.execute(query, (user_id, ))
         data = cur.fetchall()
+        
         if (data):
             return True
     except:
@@ -58,8 +59,10 @@ def get_order_by_id(orders_id):
         orders_by_id = []
         token = request.headers.get('x-auth-token')
         validToken = valid_token(token)
+        
         if validToken:
             orders_id = orders_id.split(',')
+            
             for order_id in orders_id:
                 sql = "SELECT ord.id, ord.date, ord.subtotal, ord.taxes, \
                         ord.total, ord.paid, ord.gov_id, ord.user_id, \
@@ -72,9 +75,11 @@ def get_order_by_id(orders_id):
                         INNER JOIN shipping AS s ON ord.order_id = s.order_id \
                         WHERE ord.id = %s"
                 data = mysql_run(sql, (order_id,))
+                
                 for val in data:
                     order = dict_order(val)
                     orders_by_id.append(order)
+            
             if len(orders_id) == 1:
                 return jsonify(orders_by_id[0])
         else:
@@ -90,11 +95,13 @@ def order_by_dates(date1, date2):
         order_by_dates = []
         token = request.headers.get('x-auth-token')
         validToken = valid_token(token)
+        
         if validToken:
             query = "SELECT * from order WHERE date between %s AND %s"
             cursor = mysql.connection.cursor()
             cursor.execute(query, (date1, date2))
             data = cursor.fetchall()
+            
             for val in data:
                 order_by_dates.append(val)
             return jsonify(order_by_dates)
@@ -110,6 +117,7 @@ def orders_by_user_id(user_id):
         orders_by_userId = []
         token = request.headers.get('x-auth-token')
         validToken = valid_token(token)
+        
         if validToken:
             user_id = getid_token(token)
             sql = "SELECT ord.id, ord.date, ord.subtotal, ord.taxes, \
@@ -123,6 +131,7 @@ def orders_by_user_id(user_id):
                         INNER JOIN shipping AS s ON ord.order_id = s.order_id \
                         WHERE u.id = %s"
             data = mysql_run(sql, (user_id, ))
+            
             for val in data:
                 order = dict_order(val)
                 orders_by_userId.append(order)

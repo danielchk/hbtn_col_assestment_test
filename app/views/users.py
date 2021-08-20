@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from flask import json, jsonify, request, abort
 from app import mysql
-from api.v1.views import app_views
+from app.v1.views import app_views
 import jwt
 
 

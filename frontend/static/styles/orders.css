@@ -1,20 +1,20 @@
 .pre-view-list {
-  background-color: #a9ccff33;
+  background-color: #5d6b8033;
   border: none;
 }
 
 .pre-view-title {
   font-weight: bold;
   font-size: 11px;
-  color: #0d6efd;
+  color: #2273ee;
 }
 
 .pre-view-main-title {
   font-weight: bold;
   font-size: 18px;
-  color: #0d6efd;
+  color: #2273ee;
 }
 
 .pre-view-desc {
-  color: #2d3b4f;
+  color: #2d3a4d;
 }
