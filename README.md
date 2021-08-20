@@ -19,3 +19,5 @@
 
 1.  Run the next commands: -python3 app/v1/app.py
                            -python3 frontend/app.py
+
+2. 
