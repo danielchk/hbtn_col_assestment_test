@@ -1,7 +1,7 @@
 .env
 .DS_Store
 __pycache__
-
+venv
 __pycache__/
 challenge
 *.py[cod]
